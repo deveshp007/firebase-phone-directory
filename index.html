@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html>
 
 <head>
   <meta charset="utf-8">
@@ -35,11 +35,12 @@
 
     .block {
       display: block;
+      width: 100%;
       border: none;
       background-color: #585f61;
       color: whitesmoke;
-      padding: 14px 20px;
-      font-size: 14px;
+      padding: 14px 28px;
+      font-size: 16px;
       cursor: pointer;
       text-align: center;
 
@@ -85,23 +86,6 @@
       color: rgb(255, 255, 255);
 
     }
-
-    table {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    td,
-    th {
-      border: 1px solid #060706;
-      text-align: left;
-      padding: 8px;
-    }
-
-    tr:nth-child(even) {
-      background-color: #dddddd;
-    }
   </style>
   <link rel="icon" href="logo.png" type="image/gif">
 </head>
@@ -109,8 +93,7 @@
 <body background="bgg.jpg">
   <header>
     <div class="header">
-      <a href="https://fabfour-devesh.web.app/">
-        <img src="logo.png"></a>
+      <img src="logo.png">
       <div id="userLoginScreen">
 
         <h1>
@@ -120,106 +103,128 @@
       </div>
 
   </header>
-
   <h1 style="text-align: center; font-size:50px; color: rgb(255, 255, 255);">
+    User Login Page</h1>
+  <div id="userLoginScreen">
+    <div>
+      <br>
+      <h4 style="color: rgb(255, 255, 255)">
+        Click the button to Login
+      </h4>
+      <button id="signIn" class="block">
+        <b>Login With Google</b>
+      </button>
+    </div>
 
-    Data Filling Page</h1>
-
-  <p style="text-align: left; color: whitesmoke;font-size: 25px;">
-    <button class="block"> <a href="https://fabfour-devesh.web.app/" style="color: rgb(255, 255, 255)">&#8592;Back to
-        Homepage</a>
+    <br>
+    <p style="text-align: center; color: whitesmoke;font-size: 25px;">
+      For Filling Your Details Click the Button Below!
+    </p>
+    <button class="block">
+      <a href="https://sec-devesh.firebaseapp.com/" style="color: rgb(255, 255, 255)"><b> Form Page</b></a>
     </button>
     <br>
-    <br>
-    please Fill Your Details Below :--
-  </p>
-  <div class="box">
-    <div style="position:relative;">
-      <input type="text" id="name">
-      <button id="addDataBtn">Add Data </button>
+    <div class="box">
+      Save your Precious Details(Phone number,Name etc.), Right here! in the "Fabfour Phone Directory"
+      - Devesh Pandey
     </div>
     <br>
+    <h2 class="dev">ABOUT</h2>
+    <p style="text-align: center; color: whitesmoke; font-size: 30px;">
+      Devesh Pandey</p>
+    <h3 style="text-align: center; color: whitesmoke;">
+      CSE '24 | Technophile
+    </h3>
+    <p style="text-align: center; color: whitesmoke;font-size: 25px;">
+      Currently I am pursuing a Bachelors degree from Lovely Professional University. Along with this I am also learning
+      web development. And as my interests lie in computer technology, I am open to learning new things and gaining
+      knowledge in that field. Feel free to connect or contact me with the same.<br>
+      Instagram : deveshp007
+    </p>
 
     <br>
+    <h3 style="color: whitesmoke;">Here is the social Media / Profile of the developer, If you wants to connect with
+      him!</h3>
+
+    <a href="https://www.linkedin.com/in/devesh-pandey-35bb021b7/" target="_blank">
+      <img src="linkedin.png" class="dad" aria-hidden="true">
+    </a>
+    <br>
+    <div id="UserInfoScreen" class="box">
+      <h2 style="text-align: center; font-size:50px; color: rgb(2, 2, 2)">User Info</h2>
+      <div id="userInfo">
+        <button id="logoutBtn">
+          Logout from This Page
+        </button>
+      </div>
+    </div>
+    <br>
+    <footer>
+      <p class="footer">Copyright © Devesh Pandey</p>
+    </footer>
 
 
-    <table>
-      <thead>
-        <tr>
-          <td>Name</td>
-          <td>Action</td>
-        </tr>
-      </thead>
-      <tbody id="res">
-      </tbody>
-    </table>
-  </div>
-  <!-- The core Firebase JS SDK is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
 
-  <!-- TODO: Add SDKs for Firebase products that you want to use
+    <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-auth.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
 
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyBVpN77SYbHOkVZTtH6i__6jpNI0gyP0Ts",
-      authDomain: "sec-devesh.firebaseapp.com",
-      projectId: "sec-devesh",
-      storageBucket: "sec-devesh.appspot.com",
-      messagingSenderId: "288958194737",
-      appId: "1:288958194737:web:85f527b6207e00469f2110"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    document.getElementById('addDataBtn').addEventListener('click', addData)
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyBoplJiy7mMbyZwwaRGxued0Zy0swwENfw",
+        authDomain: "fabfour-devesh.firebaseapp.com",
+        projectId: "fabfour-devesh",
+        storageBucket: "fabfour-devesh.appspot.com",
+        messagingSenderId: "554301172288",
+        appId: "1:554301172288:web:20e95dad1feed56f290da5"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
 
-    function addData() {
-      let nameData = document.getElementById('name').value
+      document.getElementById('userLoginScreen').style.display = "block"
+      document.getElementById('UserInfoScreen').style.display = "none"
 
-      firebase.firestore().collection('data').add({
-        name: nameData,
-        timestamp: new Date()
-      }).then(doc => {
-        console.log(doc.id)
-        alert('Data Added')
-        readData()
-      }).catch(e => console.log(e))
-    }
+      document.getElementById('signIn').addEventListener('click', callGoogleAuth)
+      document.getElementById('logoutBtn').addEventListener('click', callLogoutUser)
 
-    function readData() {
-      document.getElementById('res').innerHTML = ""
-      firebase.firestore().collection('data').get().then(docs => {
-        docs.forEach(doc => {
-          document.getElementById('res').innerHTML += `
-            <tr>
-                <td>${doc.data().name}</td>
-                <td>
-                    <button onClick="deleteDoc('${doc.id}')">Delete</button>
-                </td>
-            </tr>
-        `
-        })
-      })
-    }
+      function callGoogleAuth() {
+        var provider = new firebase.auth.GoogleAuthProvider();
 
-    function deleteDoc(id) {
-      //   console.log('Calling')
-      //   console.log(id)
-      if (confirm('Are you Interested?')) {
-        firebase.firestore().collection('data').doc(id).delete().then(() => {
-          alert('Data Removed')
-          readData()
+        firebase.auth().signInWithPopup(provider).then(res => {
+          var userInfo = res.user
+          console.log(res)
         }).catch(e => console.log(e))
       }
-    }
 
-    readData()
+      function checkStateUser() {
+        firebase.auth().onAuthStateChanged(user => {
+          if (user) {
+            document.getElementById('userLoginScreen').style.display = "none"
+            document.getElementById('UserInfoScreen').style.display = "block"
+            displayUserInfo(user)
+          }
+        })
+      }
 
-  </script>
+      function callLogoutUser() {
+        firebase.auth().signOut().then(() => {
+          document.getElementById('userLoginScreen').style.display = "none"
+          document.getElementById('UserInfoScreen').style.display = "block"
+        }).catch((error) => {
+        });
+      }
 
-
+      function displayUserInfo(user) {
+        console.log("Display User Info func working")
+        console.log(user)
+        document.getElementById('userInfo').innerHTML = " <img src=" + user.photoURL + "> <p>" + user.displayName + "</p> <p>" + user.email + "</p>"
+      }
+      checkStateUser()
+    </script>
 </body>
 
 </html>
