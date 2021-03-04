@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="If-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    fabfour devesh
+  </title>
+  <style>
+    .header {
+      background: rgb(105, 105, 104);
+      padding: .5em 1em;
+      margin-bottom: 00%;
+      border: rgb(247, 245, 248) solid;
+    }
+
+    .header img {
+
+      max-width: 100px;
+      float: left;
+      margin: 12px 12px 0 0;
+
+    }
+
+    .header h1 {
+      font-family: papyrus;
+      font-size: 200%;
+      margin: 1.2em 0em 1.8em 1.2em;
+      display: inline-block;
+      color: rgb(255, 255, 255);
+
+    }
+
+    .block {
+      display: block;
+      border: none;
+      background-color: #585f61;
+      color: whitesmoke;
+      padding: 14px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      text-align: center;
+
+    }
+
+    .block:hover {
+      background-color: #ddd;
+      color: black;
+
+    }
+
+    .dad {
+      width: 100px;
+      height: 100px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .box {
+      background-color: lightgrey;
+      width: 300px;
+      border: 15px solid #585f61;
+      padding: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 19px;
+      font-family: cursive;
+    }
+
+    .footer {
+      border: 5px solid #151616;
+      padding: 20px;
+      font-size: 20px;
+      text-align: center;
+      color: whitesmoke;
+    }
+
+    .dev {
+      font-family: papyrus;
+      text-align: center;
+      font-size: 50px;
+      color: rgb(255, 255, 255);
+
+    }
+
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    td,
+    th {
+      border: 1px solid #060706;
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: #dddddd;
+    }
+  </style>
+  <link rel="icon" href="logo.png" type="image/gif">
+</head>
+
+<body background="bgg.jpg">
+  <header>
+    <div class="header">
+      <a href="https://fabfour-devesh.web.app/">
+        <img src="logo.png"></a>
+      <div id="userLoginScreen">
+
+        <h1>
+          Fabfour Phone Directory - By Devesh
+        </h1>
+
+      </div>
+
+  </header>
+
+  <h1 style="text-align: center; font-size:50px; color: rgb(255, 255, 255);">
+
+    Data Filling Page</h1>
+
+  <p style="text-align: left; color: whitesmoke;font-size: 25px;">
+    <button class="block"> <a href="https://fabfour-devesh.web.app/" style="color: rgb(255, 255, 255)">&#8592;Back to
+        Homepage</a>
+    </button>
+    <br>
+    <br>
+    please Fill Your Details Below :--
+  </p>
+  <div class="box">
+    <div style="position:relative;">
+      <input type="text" id="name">
+      <button id="addDataBtn">Add Data </button>
+    </div>
+    <br>
+
+    <br>
+
+
+    <table>
+      <thead>
+        <tr>
+          <td>Name</td>
+          <td>Action</td>
+        </tr>
+      </thead>
+      <tbody id="res">
+      </tbody>
+    </table>
+  </div>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.9/firebase-firestore.js"></script>
+
+  <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyBVpN77SYbHOkVZTtH6i__6jpNI0gyP0Ts",
+      authDomain: "sec-devesh.firebaseapp.com",
+      projectId: "sec-devesh",
+      storageBucket: "sec-devesh.appspot.com",
+      messagingSenderId: "288958194737",
+      appId: "1:288958194737:web:85f527b6207e00469f2110"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    document.getElementById('addDataBtn').addEventListener('click', addData)
+
+    function addData() {
+      let nameData = document.getElementById('name').value
+
+      firebase.firestore().collection('data').add({
+        name: nameData,
+        timestamp: new Date()
+      }).then(doc => {
+        console.log(doc.id)
+        alert('Data Added')
+        readData()
+      }).catch(e => console.log(e))
+    }
+
+    function readData() {
+      document.getElementById('res').innerHTML = ""
+      firebase.firestore().collection('data').get().then(docs => {
+        docs.forEach(doc => {
+          document.getElementById('res').innerHTML += `
+            <tr>
+                <td>${doc.data().name}</td>
+                <td>
+                    <button onClick="deleteDoc('${doc.id}')">Delete</button>
+                </td>
+            </tr>
+        `
+        })
+      })
+    }
+
+    function deleteDoc(id) {
+      //   console.log('Calling')
+      //   console.log(id)
+      if (confirm('Are you Interested?')) {
+        firebase.firestore().collection('data').doc(id).delete().then(() => {
+          alert('Data Removed')
+          readData()
+        }).catch(e => console.log(e))
+      }
+    }
+
+    readData()
+
+  </script>
+
+
+</body>
+
+</html>
