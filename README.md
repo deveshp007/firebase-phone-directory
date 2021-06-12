@@ -14,3 +14,20 @@ Live URL : https://fabfour-devesh.web.app/
 ![3](https://user-images.githubusercontent.com/72290650/121766805-2442cd00-cb72-11eb-931b-33236ffb38a3.png)
 
 After Logged in by google account : 
+
+![4](https://user-images.githubusercontent.com/72290650/121767163-36256f80-cb74-11eb-906d-5bd5735272df.png)
+
+# Features 
+
+1. Firebase Authentication- login through google.
+2. Firebase Messaging- Sending Notification who subscribed.
+3. Firebase Firestore- To store the data filled by users.
+4. People who logged in can only add or delete the data in form.
+
+# Bugs
+
+Logout Button not showing.
+
+# Note
+
+Just learning firebase and web development. I know UI is not good and page is not responsive. you are welcome to do changes.
